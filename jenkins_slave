@@ -1,7 +1,7 @@
 pipeline {
 agent any
 parameters { 
-    string(name: 'NAME', defaultValue: '', description:'user Name') 
+    string(name: 'NAME', defaultValue: '', description:'userName') 
     string(name: 'Ages', defaultValue: '', description:'user Ages')
 }
 stages {
@@ -13,9 +13,8 @@ stages {
 
         stage('run python script') {
             steps {
-                echo "python myscript.py ${params.NAME} --age ${params.Ages}"
+                echo "python3 myscript.py ${params.NAME} --age ${params.Ages}"
             }
         }
     }
-
 }
