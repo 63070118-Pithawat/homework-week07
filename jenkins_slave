@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        
+        stage('Welcome to master'){
+            steps{
+                echo 'Start Program'
+            }
+        }
+
+        stage('run python script') {
+            steps {
+                echo "python myscript.py ${params.NAME} --age ${params.Ages}"
+            }
+        }
+    }
+}
