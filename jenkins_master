@@ -9,6 +9,7 @@ pipeline {
             steps{
                 echo 'Start Program'
                 sh 'echo "my first line ${files[0]}"'
+                sh 'echo "my first line ${files[1]}"'
             }
         }
 
