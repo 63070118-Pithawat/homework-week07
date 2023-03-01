@@ -1,11 +1,14 @@
 pipeline {
     agent any
-
+    environment {
+        files = readFile("data.txt")
+    }
     stages {
         
         stage('Welcome to master'){
             steps{
                 echo 'Start Program'
+                sh 'echo "${files}'
             }
         }
 
