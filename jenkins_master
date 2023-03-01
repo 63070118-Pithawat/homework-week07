@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        files = readJSON file: "data.json"
+        files = jsonParseFile("data.json")
     }
     stages {
         
@@ -10,6 +10,7 @@ pipeline {
                 echo 'Start Program'
                 sh 'echo "my first line ${files.name}"'
                 sh 'echo "my first line ${files.age}"'
+                sh 'echo "my first line ${files}"'
             }
         }
 
