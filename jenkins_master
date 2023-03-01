@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        files = jsonParseFile("data.json")
+        files = readFile("data.json")
     }
     stages {
         
