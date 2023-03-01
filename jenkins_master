@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        files = readFile(file: "data.txt").split("\n")
+        files = readFile(file: "data.txt").trim().split("\n")
     }
     stages {
         
