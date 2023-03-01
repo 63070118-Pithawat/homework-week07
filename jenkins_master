@@ -1,22 +1,17 @@
 pipeline {
     agent any
-    environment {
-        files = readJSON(file: "data.json")
-    }
     stages {
         
         stage('Welcome to master'){
             steps{
                 echo 'Start Program'
-                sh "echo \"my first line ${files.name}\""
-                sh "echo \"my second line ${files.age}\""
             }
         }
 
         stage('Tigger the Slave Jobs') {
             steps {
                 echo 'Start Trigger to send name and age to slave'
-                build job: 'slave', parameters: [string(name: 'NAME', value: files.name), string(name: 'Ages', value: files.age)]
+                build job: 'slave', parameters: [string(name: 'NAME', value: readFile(file: "name.txt")), string(name: 'Ages', value: readFile(file: "age.txt"))]
             }
         }
     }
