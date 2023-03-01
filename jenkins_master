@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        files = readFile("data.txt")
+        files = readFile("data.txt").spilt(" ")
     }
     stages {
         
