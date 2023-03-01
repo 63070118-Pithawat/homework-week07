@@ -8,9 +8,7 @@ pipeline {
         stage('Welcome to master'){
             steps{
                 echo 'Start Program'
-                sh 'echo "my first line ${files.name}"'
                 sh 'echo "my first line ${files.get(0)}"'
-                sh 'echo "my first line ${files}"'
             }
         }
 
